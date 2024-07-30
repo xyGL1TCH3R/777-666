@@ -122,45 +122,6 @@ def cep(message):
 
 ################################################
 ###############################################
-            # CONSULTA DE BIN #
-###############################################
-###############################################
-
-@bot.message_handler(commands=['bin'] + ['BIN'])
-def BIN(men):
-            notbin = []
-            bid = men.chat.id
-            cp = men.text
-            if bid in notbin:
-                bot.reply_to(men, '⚠ 𝙘𝙤𝙣𝙨𝙪𝙡𝙩𝙖 𝙙𝙚 𝙗𝙞𝙣 𝙙𝙚𝙨𝙖𝙩𝙞𝙫𝙖𝙙𝙖 ⚠')
-            else:
-                try:
-                    bn = re.sub('[^0-9]', '', cp)
-                    response = requests.get('https://binlist.io/lookup/{}'.format(bn))
-                    res = response.content
-                    r = json.loads(res)
-                    if str(r['success']) == str('True'):
-
-                        bot.reply_to(men, '\n         ㅤ   ㅤ<b>🔍 DADOS BIN 🔎</b>\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n<b>• BIN</b>: ' + '<code>' + str(
-                            r['number']['iin']) + '</code>' + '\n' +
-                                     '<b>• BANDEIRA</b>: ' + '<code>' + str(r['scheme']) + '</code>' + '\n' +
-                                     '<b>• TIPO</b>: ' + '<code>' + str(r['type']) + '</code>' + '\n' +
-                                     '<b>• NÍVEL</b>: ' + '<code>' + str(r['category']) + '</code>' + '\n' +
-                                     '<b>• BANCO</b>: ' + '<code>' + str(r['bank']['name']) + '</code>' + '\n' +
-                                     '<b>• TEL BANCO</b>: ' + '<code>' + str(r['bank']['phone']) + '</code>' + '\n' +
-                                     '<b>• URL</b>: ' + str(r['bank']['url']) + '\n' +
-                                     '<b>• PAÍS</b>: ' + '<code>' + str(r['country']['name']) + '</code>' + '\n' +
-                                     '<b>• ID</b>: ' + '<code>' + str(r['country']['alpha3']) + '</code>' + '\n' +
-                                     '<b>• SIGLA</b>: ' + '<code>' + str(r['country']['alpha2']) + '</code>' + '\n' +  
-                                     '▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '<b> '• CRIADOR: @isTony_Montana' + '\n' + '</b>', parse_mode='HTML')
-                    else:
-                        bot.reply_to(men, '<b>VEJA O EXEMPLO</b>: "' + '<code>' + '/bin 651652' + '</code>' + '"', parse_mode='HTML')
-                except:
-                    bot.reply_to(men, '<b>⚠ DIGITE UMA BIN PORRA ⚠</b>', parse_mode='HTML')
-
-################################################
-###############################################
            # CONSULTA DE CNPJ #
 ###############################################
 ###############################################
