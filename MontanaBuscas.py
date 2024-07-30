@@ -206,44 +206,7 @@ def CPF_SIMPLES(men):
             else:
                 bot.reply_to(men, '<b>Você não tem autorização para ultilizar esse comando!</b>', parse_mode='HTML')
 
-################################################
-###############################################
-              # CONSULTA DE IP #
-###############################################
-###############################################
-
-@bot.message_handler(commands=['ip', 'IP'])
-def IP(men):
-            liberadoip = PRIVADO + GRUPO + EXCEPT
-            bid = men.chat.id
-            if bid in liberadoip:
-                mensagem = men.text
-                if men.text == '/ip':
-                    bot.reply_to(men, '<b>' 'DIGITE UM IP!' '</b>', parse_mode='HTML')
-                elif men.text == '/IP':
-                    bot.reply_to(men, '<b>' 'DIGITE UM IP, ANIMAL!' '</b>', parse_mode='HTML')
-                else:
-                    try:
-                        ip = re.sub('[^0-9.]', '', mensagem)
-                        url = requests.get('http://ip-api.com/json/{}'.format(ip))
-                        req = json.loads(url.text)
-                        bot.reply_to(men,
-                                     '▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙄𝙋: ' + req['query'] + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙋𝘼𝙄́𝙎: ' + req['country'] + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙎𝙄𝙂𝙇𝘼 𝙋𝘼𝙄́𝙎: ' + str(req['countryCode']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙍𝙀𝙂𝙄𝘼̃𝙊: ' + str(req['region']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙍𝙀𝙂𝙄𝘼̃𝙊 𝙉𝘼𝙈𝙀: ' + str(req['regionName']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝘾𝙄𝘿𝘼𝘿𝙀: ' + str(req['city']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝘾𝙀𝙋: ' + str(req['zip']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙇𝘼𝙏𝙄𝙏𝙐𝘿𝙀: ' + str(req['lat']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙇𝙊𝙉𝙂𝙄𝙏𝙐𝘿𝙀: ' + str(req['lon']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                                     '𝙋𝙍𝙊𝙑𝙀𝘿𝙊𝙍: ' + str(req['org']) + '\n▱▱▱▱▱▱▱▱▱▱▱▱▱\n' +
-                    except:
-                        bot.reply_to(men, '<b>IP NÃO ENCONTRADO</b>', parse_mode='HTML')
-            else:
-                bot.reply_to(men, '<b>Você não tem autorização para ultilizar esse comando! </b>', parse_mode='HTML')
-
+g
 ################################################
 ###############################################
                   #COVID 19
